@@ -2,13 +2,13 @@ import React from 'react'
 import { ListGroup, ListGroupItem, } from 'reactstrap';
 
 const Left = ({ categories, handleCategoryFilter }) => {
-    return <div className="my-3 bg-light">
-        <ListGroup>
+    return <div className=" bg-light sticky-top shadow">
+        <ListGroup className="rounded-0">
             <ListGroupItem
                 onClick={() => handleCategoryFilter('')}
                 action
                 tag="button"
-                className="justify-content-between">
+                className="justify-content-between border-0">
                 All
             </ListGroupItem>
 
@@ -17,7 +17,7 @@ const Left = ({ categories, handleCategoryFilter }) => {
                     onClick={() => handleCategoryFilter(category)}
                     action
                     tag="button"
-                    className="justify-content-between">
+                    className="justify-content-between border-0">
                     {category}
                 </ListGroupItem>
             ))}

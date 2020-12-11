@@ -1,19 +1,11 @@
-import React, { Component } from 'react'
-import View from './view'
-
 import {
     Card, CardImg, CardText,
     CardSubtitle, CardBody, Badge
 } from 'reactstrap';
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const AllProducts = ({ products, filter, categoryFilter }) => {
+const Right = ({ products, filter, categoryFilter }) => {
     const category = filter !== '' ? filter : categoryFilter
     return <div className="row">
         {products.filter(product => {
@@ -41,25 +33,5 @@ const AllProducts = ({ products, filter, categoryFilter }) => {
     </div>
 }
 
-const Right = ({ products, filter, categoryFilter }) => {
-    return <div className="px-2 my-3">
-        <Router>
-            <Switch>
-                <Route exact path='/'>
-                    <AllProducts
-                        products={products}
-                        filter={filter}
-                        categoryFilter={categoryFilter}
-                    />
-                </Route>
-                <Route path='/view:id'>
-                    <View
-                        products={products}
-                    />
-                </Route>
-            </Switch>
-        </Router>
-    </div >
-}
 
 export default Right

@@ -1,20 +1,25 @@
-import Route from 'react'
+import React from 'react'
 import {
     BrowserRouter as Router,
     Route,
     Switch,
-    Link
 } from 'react-router-dom'
 
-const AllRouter = props => {
+import View from '../view/view'
+import Body from '../body/index'
+
+
+const AllRouter = ({ products, filter, categoryFilter, categories, handleCategoryFilter}) => {
     return <div className="px-2 my-3">
         <Router>
             <Switch>
                 <Route exact path='/'>
-                    <AllProducts
+                    <Body
                         products={products}
                         filter={filter}
                         categoryFilter={categoryFilter}
+                        categories={categories}
+                        handleCategoryFilter={handleCategoryFilter}
                     />
                 </Route>
                 <Route path='/view:id'>

@@ -4,6 +4,7 @@ import Header from './header/index'
 import Body from './body/index'
 import Footer from './footer/index'
 import axios from 'axios';
+import AllRouter from './router/router'
 
 class Shop extends Component {
 
@@ -43,17 +44,20 @@ class Shop extends Component {
     render() {
         return <div className="container my-3">
             <div className="px-5">
+
                 <Header
                     filter={this.state.filter}
                     handleSearch={this.handleSearch}
                 />
-                <Body
+
+                <AllRouter
                     products={this.state.products}
                     filter={this.state.filter}
                     categoryFilter={this.state.categoryFilter}
                     categories={this.state.categories}
                     handleCategoryFilter={this.handleCategoryFilter}
                 />
+                
                 <Footer />
             </div>
         </div>

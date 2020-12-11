@@ -9,7 +9,7 @@ const View = ({ products }) => {
 
     let { id } = useParams();
     const product = products.find(product => product.id.toString() === id.toString())
-    if(!product){
+    if (!product) {
         return (
             <div> something went wrong </div>
         )
@@ -17,14 +17,14 @@ const View = ({ products }) => {
         return (
             <Media>
                 <Media left href="#">
-                    <Media style={{ maxWidth:"400px" }} object src={product.image} alt="Generic placeholder image" />
+                    <Media style={{ maxWidth: "300px" }} object src={product.image} alt="Generic placeholder image" />
                 </Media>
                 <Media body className="px-5">
                     <Media heading>
                         {product.title}
                     </Media>
-        {product.description}
-      </Media>
+                    {product.description}
+                </Media>
             </Media>
         )
     }
