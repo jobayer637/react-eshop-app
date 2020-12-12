@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Footer from '../footer/index'
 import {
     Collapse,
     Navbar,
@@ -8,11 +7,12 @@ import {
     Nav,
     NavItem,
     NavLink,
-    NavbarText,
-    Input
+    Button,
+    Input,
+    Badge
 } from 'reactstrap';
 
-const HeaderNav = ({ filter, handleSearch}) => {
+const HeaderNav = ({ filter, handleSearch, handleCartModal, totalCarts }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
@@ -32,9 +32,13 @@ const HeaderNav = ({ filter, handleSearch}) => {
                             <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
                         </NavItem>
                     </Nav>
-                    
+
                     <Input onChange={handleSearch} type="text" value={filter} placeholder="Enter Product Title to Find Your Product"></Input>
                 </Collapse>
+            </Navbar>
+            <Navbar color="light" light expand="md" className="d-flex justify-content-between">
+                <h5>Jobayer Hossain</h5>
+                <Button className="rounded-circle btn-success float-right" onClick={handleCartModal}>Cart <Badge>{totalCarts}</Badge></Button>
             </Navbar>
         </div>
     );
