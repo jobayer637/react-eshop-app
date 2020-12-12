@@ -7,7 +7,7 @@ import { Row, Col } from 'reactstrap'
 
 const Body = ({ products, filter, categories, handleCategoryFilter, categoryFilter }) => {
     return <>
-        <Row>
+        <Row className="my-4 pr-3">
             <Col md="3">
                 <Left
                     categories={categories}

@@ -48,8 +48,8 @@ const View = ({ products, handleChangeAddToCard, handleProductAddToCard, quantit
             totalRatingSum += (rate.count * (index + 1))
         })
         return (
-            <div>
-                <Media>
+            <div className="border mt-2">
+                <Media className="p-3">
                     <Media left href="#">
                         <Media style={{ maxWidth: "300px" }} object src={product.image} alt="Generic placeholder image" />
                     </Media>

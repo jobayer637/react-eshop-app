@@ -20,16 +20,16 @@ const HeaderNav = ({ filter, handleSearch, handleCartModal, totalCarts }) => {
     return (
         <div>
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
+                <NavbarBrand href="/">E-SHOP</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
 
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
+                            <NavLink href="/">Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                            <NavLink target="_black" href="https://github.com/jobayer637/react-eshop-app">GitHub</NavLink>
                         </NavItem>
                     </Nav>
 

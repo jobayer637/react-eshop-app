@@ -150,13 +150,6 @@ class Shop extends Component {
         return <div className="container my-3">
             <div className="px-5">
 
-                <Header
-                    filter={this.state.filter}
-                    handleSearch={this.handleSearch}
-                    handleCartModal={this.handleCartModal}
-                    totalCarts={this.state.cart.length}
-                />
-
                 <CartModal
                     isOpen={this.state.cartModalIsOpen}
                     handleCartModal={this.handleCartModal}
@@ -174,9 +167,13 @@ class Shop extends Component {
                     quantity={this.state.quantity}
                     handleRatingChanged={this.handleRatingChanged}
                     ratings={this.state.ratings}
+
+                    handleSearch={this.handleSearch}
+                    handleCartModal={this.handleCartModal}
+                    totalCarts={this.state.cart.length}
                 />
 
-                <Footer />
+                
             </div>
         </div>
     }
