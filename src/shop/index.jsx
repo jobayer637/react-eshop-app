@@ -146,6 +146,29 @@ class Shop extends Component {
         }
     }
 
+    incDecCartProduct = value => {
+        const quantity = value[0]
+        const id = value[1]
+        const totalQuantity = value[2] + quantity
+        console.log(totalQuantity)
+        if (totalQuantity >= 1) {
+            const cart = [...this.state.cart]
+            const findCart = cart.find(cart => cart.productId === id)
+            findCart.quantity = parseInt(findCart.quantity) + parseInt(quantity)
+            findCart.totalPrice = findCart.quantity * findCart.unitPrice
+
+            this.setState({ cart })
+        } else {
+            swal({
+                title: "OOpps! Sorry!!",
+                text: "At least one product must be added your cart, otherwise delete this product, Thank you",
+                icon: "warning",
+                button: "Close",
+            })
+        }
+
+    }
+
     render() {
         return <div className="container my-3">
             <div className="px-5">
@@ -154,6 +177,7 @@ class Shop extends Component {
                     isOpen={this.state.cartModalIsOpen}
                     handleCartModal={this.handleCartModal}
                     products={this.state.cart}
+                    incDecCartProduct={this.incDecCartProduct}
                 />
 
                 <AllRouter
@@ -173,7 +197,7 @@ class Shop extends Component {
                     totalCarts={this.state.cart.length}
                 />
 
-                
+
             </div>
         </div>
     }

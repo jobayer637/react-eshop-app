@@ -1,10 +1,10 @@
 import {
     Modal, ModalBody, Card, CardBody, CardHeader,
-    ModalFooter, Button, Table, ListGroup, ListGroupItem, Badge
+    ModalFooter, Button, Table, ListGroup, ListGroupItem, Badge, ButtonGroup
 } from 'reactstrap'
 
 
-const Cart = ({ products, isOpen, handleCartModal }) => {
+const Cart = ({ products, isOpen, handleCartModal, incDecCartProduct }) => {
     let sum = 0
     let vat = 0
 
@@ -37,9 +37,15 @@ const Cart = ({ products, isOpen, handleCartModal }) => {
                                                 <img style={{ maxWidth: '200px', maxHeight: '150px' }} src={product.image} alt={product.title} />
                                                 <p>{product.productTitle}</p>
                                             </td>
-                                            <td className="align-middle"><Badge color="warning">{product.unitPrice.toPrecision(8)}</Badge></td>
-                                            <td className="align-middle"><Badge color="danger">{product.quantity}</Badge></td>
-                                            <td className="align-middle"><Badge color="dark">{product.totalPrice.toPrecision(8)}</Badge></td>
+                                            <td className="align-middle"><Badge className="rounded-0" color="warning">{product.unitPrice.toPrecision(8)}</Badge></td>
+                                            <td className="align-middle">
+                                                <ButtonGroup>
+                                                    <Badge onClick={() => incDecCartProduct([-1, product.productId, product.quantity])} className="rounded-0 btn px-3">-</Badge>
+                                                    <Badge className="rounded-0 border border-info" color="light">{product.quantity}</Badge>
+                                                    <Badge onClick={() => incDecCartProduct([1, product.productId, product.quantity])} className="rounded-0 btn px-3">+</Badge>
+                                                </ButtonGroup>
+                                            </td>
+                                            <td className="align-middle"><Badge className="rounded-0" color="dark">{product.totalPrice.toPrecision(8)}</Badge></td>
                                         </tr>
                                     )
                                 })}

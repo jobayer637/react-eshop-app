@@ -56,6 +56,14 @@ const View = ({ products, handleChangeAddToCard, handleProductAddToCard, quantit
                     <Media body className="px-5">
                         <Media heading> {product.title} </Media>
                         <strong className="text-success">OUR PRICE: ${product.price}</strong>
+                        <ReactStars
+                            isHalf={false}
+                            count={5}
+                            value={rating && Math.floor(totalRatingSum / rating.totalRating)}
+                            color2={'#ffd700'}
+                            size="25"
+                        />
+                        <h6>Rating: {rating && Math.floor(totalRatingSum / rating.totalRating)} out of 5</h6>
                         <p className="mt-4">{product.description}</p>
 
                         <Card className="rounded-0 mt-5">
@@ -77,6 +85,7 @@ const View = ({ products, handleChangeAddToCard, handleProductAddToCard, quantit
                             <Col md="5">
                                 <h3>Customer reviews</h3>
                                 <ReactStars
+                                    disabled={true}
                                     isHalf={false}
                                     count={5}
                                     value={rating && Math.floor(totalRatingSum / rating.totalRating)}
